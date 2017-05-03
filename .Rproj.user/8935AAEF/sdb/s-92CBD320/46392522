@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "require('dplyr')\nlibrary('ggplot2')\nlibrary('survival')\n\ndat <- readr::read_csv(\"data/seminar_data.csv\")\n\n\ndat %>%\n  mutate(awake = ifelse(awake == 0, -1, awake),\n         attendance = cumsum(awake)) %>%\n         select(time, awake, attendance) %>%\n  ggplot(aes(x = time, y = attendance)) + \n  geom_step() + \n  ylab(\"cognitative attendance\") + \n  scale_x_continuous(breaks=c(18.5,18.75,19,19.25,19.5),\n                     labels = c(\"1:30 pm\",\"1:45 pm\",\"2:00 pm\",\"2:15 pm\",\"2:30 pm\")) +\n  annotate(\"text\", x = 18.8, y = 6, label = \"lengthy derivation\", color = \"#EB6864\") + \n  geom_segment(x = 18.82, y = 6.2, xend = 18.85, yend = 6.8, arrow = arrow(length = unit(0.1,\"cm\")), color ='#EB6864' )\n  \n)\n",
+    "created" : 1493844841250.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2736001729",
+    "id" : "46392522",
+    "lastKnownWriteTime" : 16,
+    "last_content_update" : 1493851173257,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
