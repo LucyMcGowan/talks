@@ -1,0 +1,113 @@
+---
+title: papr
+subtitle: Tinder for pre-prints
+author: 
+  - "Lucy D'Agostino McGowan <br> <i class = 'fa fa-twitter fa-inverse'></i> @LucyStats"
+  - "Nick Strayer <br> <i class = 'fa fa-twitter fa-inverse'></i> @NicholasStrayer"
+  - "Jeff Leek <br> <i class = 'fa fa-twitter fa-inverse'></i> @jtleek"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+    self_contained: true
+    css: my_style.css
+    chakra: libs/remark-latest.min.js
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+class: center, middle
+
+![](https://media.tenor.com/images/5374b14a66a5b0a1eb3332ff6efdda20/tenor.gif)
+
+.footnote[useR!2017 \#RChickenLadies]
+---
+layout: true
+
+.footnote[useR!2017]
+---
+
+# History <i class = "fa fa-twitter"></i>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I built a &quot;tinder for academic preprints&quot; web app: <a href="https://t.co/fZYlgkn4WL">https://t.co/fZYlgkn4WL</a> for <a href="https://twitter.com/biorxivpreprint">@biorxivpreprint</a> preprints.</p>&mdash; Jeff Leek (@jtleek) <a href="https://twitter.com/jtleek/status/782949505754861568">October 3, 2016</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Hilarious 😂 If only it was compatible with swiping..the tactile enjoyment of making snap judgements by swiping left/right is unrivaled <a href="https://twitter.com/hashtag/papr?src=hash">#papr</a> <a href="https://t.co/isg5hmsh7n">https://t.co/isg5hmsh7n</a></p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/782953224420495365">October 3, 2016</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">.<a href="https://twitter.com/LucyStats">@LucyStats</a> I&#39;m with you, maybe <a href="https://twitter.com/jcheng">@jcheng</a> can add swiping functionality to Shiny?</p>&mdash; Jeff Leek (@jtleek) <a href="https://twitter.com/jtleek/status/782953550091542528">October 3, 2016</a></blockquote>
+
+---
+
+# History <i class = "fa fa-twitter"></i> 
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Agreed. <a href="https://twitter.com/jcheng">@jcheng</a> I&#39;d appreciate it if you would make this a top priority 💁🏻</p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/782958062378377216">October 3, 2016</a></blockquote>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I&#39;m looping you in <a href="https://twitter.com/NicholasStrayer">@NicholasStrayer</a> can you do some javascript magic to make this happen ✨💻
+
+</p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/782967208649580545">October 3, 2016</a>
+
+</blockquote>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">swipR: the tidyverse judge-a-book-by-its-cover <a href="https://twitter.com/hashtag/rstats?src=hash">#rstats</a> package.</p>&mdash; Nick Strayer (@NicholasStrayer) <a href="https://twitter.com/NicholasStrayer/status/782978330316382208">October 3, 2016</a> 
+</blockquote>
+
+
+---
+
+# History <i class = "fa fa-twitter"></i>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">yep done we&#39;re making it. Cube meeting at 3.</p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/782978971596185602">October 3, 2016</a>
+</blockquote>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Cube meeting mission accomplished <a href="https://twitter.com/hashtag/highfivingamillionangels?src=hash">#highfivingamillionangels</a> <a href="https://t.co/qibMzCD8kd">pic.twitter.com/qibMzCD8kd</a></p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/783066294115569665">October 3, 2016</a></blockquote>
+---
+
+# Statistics
+
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+</span>  13,000+ visitors 
+<br><br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
+</span>
+1,800+ unique logins  <br><br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+ 400+ provided Twitter credentials <br><br>
+
+
+---
+class: inverse, center, middle
+
+# Dropbox
+
+---
+
+# Swiping
+
+test
+---
+
+# Google Login
+
+---
+
+# Recommender
+
+---
+
+# Twitter network
+
+---
+
+# 
+# Lessons Learned
