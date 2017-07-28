@@ -1,15 +1,8 @@
 ---
-title: papr
-subtitle: Tinder for pre-prints
-author: 
-  - "Lucy D'Agostino McGowan <br> <i class = 'fa fa-twitter fa-inverse'></i> @LucyStats"
-  - "Nick Strayer <br> <i class = 'fa fa-twitter fa-inverse'></i> @NicholasStrayer"
-  - "Jeff Leek <br> <i class = 'fa fa-twitter fa-inverse'></i> @jtleek"
 output:
   xaringan::moon_reader:
     lib_dir: libs
     nature:
-      highlightStyle: github
       highlightLines: true
     self_contained: true
     css: my_style.css
@@ -20,8 +13,18 @@ output:
 options(htmltools.dir.version = FALSE)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
+class: center, middle 
+# papr: Tinder for pre-prints
 
+Lucy D'Agostino McGowan  
+Nick Strayer  
+Jeff Leek  
+![](https://raw.githubusercontent.com/jhudsl/jhudsl.github.io/master/images/jhudsl.gif)
+
+---
 class: center, middle
+
+# what is tinder?
 
 ![](https://media.tenor.com/images/5374b14a66a5b0a1eb3332ff6efdda20/tenor.gif)
 
@@ -31,8 +34,14 @@ layout: true
 
 .footnote[useR!2017]
 ---
+class: center, middle
+# what is papr?
 
-# History <i class = "fa fa-twitter"></i>
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/papr.gif)
+
+---
+
+# history <i class = "fa fa-twitter"></i>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I built a &quot;tinder for academic preprints&quot; web app: <a href="https://t.co/fZYlgkn4WL">https://t.co/fZYlgkn4WL</a> for <a href="https://twitter.com/biorxivpreprint">@biorxivpreprint</a> preprints.</p>&mdash; Jeff Leek (@jtleek) <a href="https://twitter.com/jtleek/status/782949505754861568">October 3, 2016</a></blockquote>
 
@@ -42,7 +51,7 @@ layout: true
 
 ---
 
-# History <i class = "fa fa-twitter"></i> 
+# history <i class = "fa fa-twitter"></i> 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Agreed. <a href="https://twitter.com/jcheng">@jcheng</a> I&#39;d appreciate it if you would make this a top priority 💁🏻</p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/782958062378377216">October 3, 2016</a></blockquote>
 
@@ -55,23 +64,23 @@ layout: true
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">swipR: the tidyverse judge-a-book-by-its-cover <a href="https://twitter.com/hashtag/rstats?src=hash">#rstats</a> package.</p>&mdash; Nick Strayer (@NicholasStrayer) <a href="https://twitter.com/NicholasStrayer/status/782978330316382208">October 3, 2016</a> 
 </blockquote>
 
-
 ---
 
-# History <i class = "fa fa-twitter"></i>
+# history <i class = "fa fa-twitter"></i>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">yep done we&#39;re making it. Cube meeting at 3.</p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/782978971596185602">October 3, 2016</a>
 </blockquote>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Cube meeting mission accomplished <a href="https://twitter.com/hashtag/highfivingamillionangels?src=hash">#highfivingamillionangels</a> <a href="https://t.co/qibMzCD8kd">pic.twitter.com/qibMzCD8kd</a></p>&mdash; Lucy 🌻 (@LucyStats) <a href="https://twitter.com/LucyStats/status/783066294115569665">October 3, 2016</a></blockquote>
+
 ---
 
-# Statistics
+# stats
 
 <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x"></i>
   <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-</span>  13,000+ visitors 
+</span>  13,000+ sessions
 <br><br>
 <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x"></i>
@@ -82,32 +91,405 @@ layout: true
   <i class="fa fa-circle fa-stack-2x"></i>
   <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 </span>
- 400+ provided Twitter credentials <br><br>
-
-
----
-class: inverse, center, middle
-
-# Dropbox
+ 450+ provided Twitter credentials <br><br>
 
 ---
 
-# Swiping
-
-test
----
-
-# Google Login
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.001.png)
 
 ---
 
-# Recommender
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.002.png)
 
 ---
 
-# Twitter network
+# unique aspects
+
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
+</span> saving data for multiple logins
+<br><br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+</span>
+running the app locally with a specific port <br><br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-floppy-o fa-stack-1x fa-inverse"></i>
+</span>
+ saving API credentials <br><br>
+---
+
+# unique aspects
+
+ <span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-hand-o-up fa-stack-1x fa-inverse"></i>
+</span>
+ incorporating tactile input <br><br>
+  <span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+</span>
+ creating a recommender engine <br><br>
+
+---
+class: center, middle
+
+ [https://jhubiostatistics.shinyapps.io/papr](https://jhubiostatistics.shinyapps.io/papr/)
 
 ---
 
-# 
-# Lessons Learned
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.003.png)
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.004.png)
+
+---
+
+[![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.005.png)](https://github.com/MarkEdmondson1234/googleAuthR)
+---
+
+# Google credentials
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.006.png)
+
+---
+
+# Google credentials
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.007.png)
+
+---
+
+# tell shiny
+
+```r
+shiny::runApp(port=1221)
+```
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.008.png)
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.009.png)
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.010.png)
+
+---
+
+# pop-up
+
+```r
+library("shiny")
+library("shinysense")
+
+terms_content_div <- div(
+  p("Here are some terms for you to ignore")
+  )
+
+ui <- fixedPage(
+  shinypopupUI("terms",
+               buttonText = "I understand, let's get swiping!",
+               popupDiv = terms_content_div,
+               "test"
+  )
+)
+
+server <- function(input, output, session) {
+  callModule(shinypopup, "terms", accepted = FALSE)
+})
+```
+---
+
+# pop-up
+
+```r
+library("shiny")
+library("shinysense")
+
+*terms_content_div <- div(
+*  p("Here are some terms for you to ignore")
+*  )
+
+ui <- fixedPage(
+  shinypopupUI("terms",
+               buttonText = "I understand, let's get swiping!",
+               popupDiv = terms_content_div,
+               "test"
+  )
+)
+
+server <- function(input, output, session) {
+  callModule(shinypopup, "terms", accepted = FALSE)
+})
+```
+---
+
+# pop-up
+
+```r
+library("shiny")
+library("shinysense")
+
+terms_content_div <- div(
+  p("Here are some terms for you to ignore")
+  )
+
+ui <- fixedPage(
+*  shinypopupUI("terms",
+*               buttonText = "I understand, let's get swiping!",
+*               popupDiv = terms_content_div,
+*               "test"
+  )
+)
+
+server <- function(input, output, session) {
+  callModule(shinypopup, "terms", accepted = FALSE)
+})
+```
+---
+
+# pop-up
+
+```r
+library("shiny")
+library("shinysense")
+
+terms_content_div <- div(
+  p("Here are some terms for you to ignore")
+  )
+
+ui <- fixedPage(
+  shinypopupUI("terms",
+               buttonText = "I understand, let's get swiping!",
+               popupDiv = terms_content_div,
+               "test"
+  )
+)
+
+server <- function(input, output, session) {
+*  callModule(shinypopup, "terms", accepted = FALSE)
+})
+```
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.011.png)
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.012.png)
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.013.png)
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.014.png)
+
+---
+
+# save credentials
+
+```r
+library("rdrop2")
+token <- drop_auth()
+saveRDS(token, "papr-drop.rds")
+```
+
+---
+
+# save credentials
+
+```r
+library("rdrop2")
+token <- drop_auth()
+*saveRDS(token, "papr-drop.rds")
+```
+
+*be sure to stick this in your .gitignore* `r emo::ji("speak_no_evil")`
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.015.png)
+
+---
+
+# swipr
+
+```r
+library("shiny")
+library("shinysense")
+
+ui <- fixedPage(
+  shinyswiprUI("my_swiper",
+               h4("Swipe Me!"),
+               hr(),
+               p("This is some swipe-happy content")
+        )
+    )
+
+server <- function(input, output, session) {
+    card_swipe <- callModule(shinyswipr, "my_swiper")
+    observeEvent(card_swipe(), {
+      print(card_swipe()) #show last swipe result. 
+    }) 
+}
+```
+
+---
+
+# swipr
+
+```r
+library("shiny")
+library("shinysense")
+
+ui <- fixedPage(
+*  shinyswiprUI("my_swiper",
+               h4("Swipe Me!"),
+               hr(),
+               p("This is some swipe-happy content")
+        )
+    )
+
+server <- function(input, output, session) {
+    card_swipe <- callModule(shinyswipr, "my_swiper")
+    observeEvent(card_swipe(), {
+      print(card_swipe()) #show last swipe result. 
+    }) 
+}
+```
+
+---
+
+# swipr
+
+```r
+library("shiny")
+library("shinysense")
+
+ui <- fixedPage(
+  shinyswiprUI("my_swiper",
+               h4("Swipe Me!"),
+               hr(),
+               p("This is some swipe-happy content")
+        )
+    )
+
+server <- function(input, output, session) {
+*    card_swipe <- callModule(shinyswipr, "my_swiper")
+    observeEvent(card_swipe(), {
+      print(card_swipe()) #show last swipe result. 
+    }) 
+}
+```
+
+---
+
+# swipr
+
+```r
+library("shiny")
+library("shinysense")
+
+ui <- fixedPage(
+  shinyswiprUI("my_swiper",
+               h4("Swipe Me!"),
+               hr(),
+               p("This is some swipe-happy content")
+        )
+    )
+
+server <- function(input, output, session) {
+    card_swipe <- callModule(shinyswipr, "my_swiper")
+*    observeEvent(card_swipe(), {
+      print(card_swipe()) #show last swipe result. 
+    }) 
+}
+```
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.016.png)
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.017.png)
+
+---
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.018.png)
+
+---
+
+# PCA plotly
+
+```{r, warning = FALSE, message = FALSE, echo = FALSE}
+
+library('plotly')
+load("pca_dat.rda")
+plot_ly(
+  pca_dat,
+  x = ~ PC1,
+  y = ~ PC2,
+  z = ~ PC3,
+  text = ~ paste('Title:', title),
+  marker = list(
+    mode = "marker",
+    color = ~ color,
+    size = ~ size,
+    opacity = 0.5
+  )
+) %>%
+  add_markers(name = "Click here to hide/show all papers") %>%
+  add_trace(
+    x = as.numeric(pca_dat[1, 1]),
+    y = as.numeric(pca_dat[1, 2]),
+    z = as.numeric(pca_dat[1, 3]),
+    type = "scatter3d",
+    text = "You are here",
+    mode = "text",
+    name = "Click here to hide/show your location"
+  ) %>%
+  layout(scene = list(
+    xaxis = list(title = 'PC1'),
+    yaxis = list(title = 'PC2'),
+    zaxis = list(title = 'PC3')
+  ))
+```
+
+---
+
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-07_user/img/keynote/keynote.019.png)
+
+---
+
+# thank you
+
+
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
+</span> [https://jhubiostatistics.shinyapps.io/papr](https://jhubiostatistics.shinyapps.io/papr/)
+
+ <i class="fa fa-cog fa-spin fa-2x fa-fw"></i>
+ [https://github.com/jhudsl/papr](https://github.com/jhudsl/papr)
+
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-toggle-right fa-stack-1x fa-inverse"></i>
+</span> [http://rpubs.com/lucymcgowan/papr](http://rpubs.com/lucymcgowan/papr)
+
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+[@LucyStats](https://twitter.com/LucyStats)
