@@ -7,9 +7,8 @@ author:
 date: "March 14, 2017"
 output:
   xaringan::moon_reader:
-    seal: yes
-    nature:
-      highlightStyle: github
+    chakra: libs/remark-latest.min.js
+    self_contained: true
 bibliography: slide_files/slides.bib
 ---
 
@@ -23,7 +22,7 @@ library("ggplot2")
 --
 
 <center>
-<img src = "slide_files/unmeasured.png" width = 50%> </img>
+<img src = "https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/unmeasured.png" width = 50%> </img>
 </center>
 
 --
@@ -51,14 +50,14 @@ class: middle
 ---
 class: center, middle
 # Adventure is out there!
-![](slide_files/crop.gif)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/crop.gif)
 
 ---
 
 class: center, middle
 
 
-![](slide_files/mountain/Slide1.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide1.png)
 ---
 
 class: middle
@@ -75,38 +74,38 @@ class: middle
 class: center, middle
 
 
-![](slide_files/mountain/Slide1.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide1.png)
 ---
 class: center, middle
 
 
-![](slide_files/mountain/Slide2.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide2.png)
 ---
 class: center, middle
 
 
-![](slide_files/mountain/Slide3.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide3.png)
 ---
 class: center, middle
 
 
-![](slide_files/mountain/Slide4.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide4.png)
 ---
 class: center, middle
 
 
-![](slide_files/mountain/Slide5.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide5.png)
 ---
 class: center, middle
 
 
-![](slide_files/mountain/Slide6.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide6.png)
 ---
 
 class: center, middle
 
 
-![](slide_files/mountain/Slide7.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide7.png)
 ---
 # Tipping point analysis
 
@@ -164,58 +163,17 @@ These methods can easily be incorporated in any study using the following formul
 ### A hypothetical unobserved binary confounder with a 10% prevalence difference ($p_0=0$, $p_1=0.1$) between the therapies would need to have an association with heart failure of HR=4.0 to tip this analysis to nonsignificance at a 5% level. 
 ---
 class: center, middle
-# lucy.shinyapps.io/tipr
+# [lucy.shinyapps.io/tipr](https://lucy.shinyapps.io/tipr)
 
-![](slide_files/mountain/Slide8.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/mountain/Slide8.png)
 
 ---
 # Anchor this in an example from your study:
 
 ### For a comparison from the observed confounders, baseline heart failure history had a prevalence difference of 5% in the pre-matching cohort and an association with CHF of HR=2.30; which would have been insufficient to tip this analysis had we not adjusted for it.
----
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-library('dplyr')
-library('plotly')
-  lb<-seq(1.0,4,.001) 
-my_plot <- function(lb, p0){
-  p1 = seq(p0+.1,1,.1)
-  gamma = sapply(p1, function(p1) (1-p1+lb*(p0-1))/(lb*p0-p1))
-  gamma = ifelse(gamma<lb, NA, gamma)
-  lb = rep(lb, ncol(gamma))
-  p1 = rep(p1,each = 3001)
-  gamma = matrix(gamma, ncol = 1)
-  dd <- data.frame(lb, gamma, p1)
-dd %>%
-  filter(gamma <= 4) %>%
-  group_by(p1) %>%
-  plot_ly(x = ~lb, y = ~gamma, 
-          line = list(width = 5, color = "lightblue"),
-          type = "scattergl",
-          mode = "lines", 
-          hoverinfo = 'text',
-          text = ~paste('gamma: ', round(gamma,2), 
-                        '</br> lower bound: ', round(lb,2),
-                        '</br> p1: ', p1)) %>%
-          layout(title = paste("p0 is", p0, "varying p1 from",min(p1),"to 1"),
-                 xaxis = list(
-                 title = "lower bound of exposure effect"),
-                 yaxis = list(
-                 title = "gamma")) %>%
-          config(displayModeBar = FALSE) -> p
-p
-}
-```
-
-```{r, echo = FALSE}
-my_plot(lb = lb, p0 = 0)
-```
----
-```{r,echo = FALSE}
-my_plot(lb = lb, p0 = 0.5)
-```
 
 ---
+
 # Conclusion
 
 - we have presented a useful, **easily implemented**, and  intuitively understood approach to allow researchers to assess the potential impact of unmeasured  confounders in observational research
@@ -226,7 +184,7 @@ my_plot(lb = lb, p0 = 0.5)
 ---
 class: middle
 
-![](slide_files/overthinking.png)
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/overthinking.png)
 
 *On the other hand, it took us embarrassingly long to clue in to the lung cancer/cigarette thing, so I guess the real lesson is "figuring out which ideas are true is hard."*
 
@@ -275,7 +233,7 @@ class: middle
 <h4>"The Size Rule makes it plain that the counterhypothesis is incompatible with the facts concerning cigarette-cancer risks. Hence at this stage there are two choices: Cease to assert the counterhypothesis and continue to be a scientist, or continue to assert the counterhypothesis and cease to be a scientist. In either case there is no longer a scientific controversy."</h4>
 <i>Bross, I. D. J. (1966). Spurious effects from an extraneous variable. Journal of Chronic Diseases, 19(6), 637–647</i>
       </td>
-      <td align="center"><img src = "slide_files/waterfall.gif" width = 2500px></td>
+      <td align="center"><img src = "https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017_enar/slide_files/waterfall.gif" width = 2500px></td>
     </tr>
   </tbody>
 </table>

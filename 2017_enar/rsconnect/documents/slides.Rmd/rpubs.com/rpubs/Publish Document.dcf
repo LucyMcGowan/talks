@@ -2,7 +2,7 @@ name: Publish Document
 title:
 account: rpubs
 server: rpubs.com
-appId: https://api.rpubs.com/api/v1/document/256954/008bd76d917442f3953557c5461c5c19
-bundleId: https://api.rpubs.com/api/v1/document/256954/008bd76d917442f3953557c5461c5c19
-url: http://rpubs.com/lucymcgowan/256954
-when: 1489182192.03891
+appId: https://api.rpubs.com/api/v1/document/295004/e1f59bf32b124c26a1c41d916e550a70
+bundleId: https://api.rpubs.com/api/v1/document/295004/e1f59bf32b124c26a1c41d916e550a70
+url: http://rpubs.com/lucymcgowan/295004
+when: 1501269891.36688
