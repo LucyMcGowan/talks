@@ -4,5 +4,5 @@ account: rpubs
 server: rpubs.com
 appId: https://api.rpubs.com/api/v1/document/295000/49327aa8f1144cffb0c6d163d8b6b8ae
 bundleId: https://api.rpubs.com/api/v1/document/295000/49327aa8f1144cffb0c6d163d8b6b8ae
-url: http://rpubs.com/publish/claim/295000/7104fc3e40524670940378b37a196ce0
-when: 1501266930.90607
+url: http://rpubs.com/lucymcgowan/295000
+when: 1501275734.37772

@@ -22,13 +22,32 @@ layout: true
 
 .footnote[\#JSM2017]
 ---
+_Inspite of there being good methods out there, sensitivity analyses aren't being done. Lit review in top tier journal we saw 4% difference. Big push to make these understandable and really make this a common practice_
+set the stage 
+In the last analysis you did you do a sensitivy analysis
+DId these in RHC
+SMD plot - standardized way of showing balance in observation study before and after matching/weighting
+show just SMD - here is a standard plot that is getting included a lot more, we think it should be in every paper - it shows balance/inbalance in each of the covariates 
+what this doesn't show you the imporatance of that particular covariate in teh final estimate. To really understand how important these coveriates are, we need to understand how much these covariates moved the estimate itself
+interested on impact on point-estimate of exposure
+3 things that will make a covariate important - it needs to be predictive of the exposure (imballanced) predictive of the outcome (a strong beta in the model) it needs to be fairly independent of the other covariates included 
+DNR is not the most imbalanced covariate - it is super predictive and is pretty independent from the other covariates
+Unless you have clinical reason to believe that you have another covariate like DNR, then you may base your sensitivity analysis on 
+- even if we had missed something as big a DNR, we still would be ok
+- discuss outcome + exposure
+- show whole graph then show cropped for the rest
+- tell RHC story
+Imbalanced
+predictive of outcome
+independent of other covariates
+---
 
-## recommended steps
+## recommended components
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
-  &lt;i class=&quot;fa fa-line-chart fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt; State the primary analysis result
+  &lt;i class=&quot;fa fa-user-md fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Include content-matter expertise
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
@@ -42,11 +61,11 @@ layout: true
 
 ---
 
-## recommended steps
+## recommended components
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x fa-inverse-2&quot;&gt;&lt;/i&gt;
-  &lt;i class=&quot;fa fa-line-chart fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt; State the primary analysis result
+  &lt;i class=&quot;fa fa-user-md fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Content matter expertise
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
@@ -60,11 +79,11 @@ layout: true
 
 ---
 
-## recommended steps
+## recommended components
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x fa-inverse-2&quot;&gt;&lt;/i&gt;
-  &lt;i class=&quot;fa fa-line-chart fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt; State the primary analysis result
+  &lt;i class=&quot;fa fa-user-md fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Content matter expertise
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x fa-inverse-2&quot;&gt;&lt;/i&gt;
@@ -78,11 +97,11 @@ layout: true
 
 ---
 
-## recommended steps
+## recommended components
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x fa-inverse-2&quot;&gt;&lt;/i&gt;
-  &lt;i class=&quot;fa fa-line-chart fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt; State the primary analysis result
+  &lt;i class=&quot;fa fa-user-md fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Content matter expertise
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x fa-inverse-2&quot;&gt;&lt;/i&gt;
@@ -92,7 +111,7 @@ layout: true
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
   &lt;i class=&quot;fa fa-balance-scale fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt; Calculate a hypothetical &quot;**tipping point**&quot; confounder
+&lt;/span&gt; Calculate a hypothetical [&quot;**tipping point**&quot;](http://rpubs.com/lucymcgowan/enar2017) confounder
 
 ```r
 devtools::install_github(&quot;LucyMcGowan/tipr&quot;)
@@ -104,20 +123,39 @@ tip_with_binary(p1 = .5, p0 = 0, lb = 1.2, ub = 1.5)
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
-  &lt;i class=&quot;fa fa-eye fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt;  Visualize bias
+  &lt;i class=&quot;fa fa-balance-scale fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Imbalance of **exposure**
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
-  &lt;i class=&quot;fa fa-user-md fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt; Use content-matter expertise
+  &lt;i class=&quot;fa fa-line-chart fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Predictive of **outcome** 
 
 
 &lt;span class=&quot;fa-stack fa-lg&quot;&gt;
   &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
-  &lt;i class=&quot;fa fa-check fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
-&lt;/span&gt;  Make an data-driven decision
+  &lt;i class=&quot;fa fa-group fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Independent of **other covariates**
 
+---
+
+## anchor your sensitivity analysis
+
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-circle fa-stack-2x&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-balance-scale fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Imbalance of **exposure**
+
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-circle fa-stack-2x fa-inverse-2&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-line-chart fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Predictive of **outcome** 
+
+
+&lt;span class=&quot;fa-stack fa-lg&quot;&gt;
+  &lt;i class=&quot;fa fa-circle fa-stack-2x fa-inverse-2&quot;&gt;&lt;/i&gt;
+  &lt;i class=&quot;fa fa-group fa-stack-1x fa-inverse&quot;&gt;&lt;/i&gt;
+&lt;/span&gt; Independent of **other covariates**
 ---
 ![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-08_jsm/img/keynote/keynote.001.png)
 ---
@@ -128,6 +166,8 @@ tip_with_binary(p1 = .5, p0 = 0, lb = 1.2, ub = 1.5)
 ![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-08_jsm/img/keynote/keynote.003.png)
 ---
 ![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-08_jsm/img/keynote/keynote.001.png)
+---
+![](https://raw.githubusercontent.com/LucyMcGowan/talks/master/2017-08_jsm/img/keynote/keynote.004.png)
 ---
 layout: true
 ---
