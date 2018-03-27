@@ -247,6 +247,46 @@ d %>%
   geom_line() +     
   scale_x_continuous(breaks = c(200, 1000, 5000)) 
 
+d %>%
+  filter(method %in% c("pscore_only_ate", "outcome_and_pscore_ate", "outcome_model_only")) %>%
+  group_by(corr, method) %>%
+  summarise(bias = mean(est) - 1) %>%
+  mutate(
+    n = case_when(
+      grepl("200", corr) ~ 200,
+      grepl("1000", corr) ~ 1000,
+      grepl("5000", corr) ~ 5000
+    ),
+    model = case_when(
+      method == "pscore_only_ate" ~ "propensity score only",
+      method == "outcome_and_pscore_ate" ~ "propensity score + outcome",
+      method == "outcome_model_only" ~ "outcome only"
+    ),
+    correlation = case_when(
+      grepl("corr_0", corr) ~ "~0",
+      grepl("corr_5", corr) ~ "~0.5",
+      grepl("corr_85", corr) ~ "~0.85",
+      grepl("corr_1", corr) ~ "~1"
+    ),
+    group = case_when(
+      correlation == "~0" & model == "propensity score only" ~ 1,
+      correlation == "~0.5" & model == "propensity score only" ~ 2,
+      correlation == "~0.85" & model == "propensity score only" ~ 3,
+      correlation == "~1" & model == "propensity score only" ~ 4,
+      correlation == "~0" & model == "propensity score + outcome" ~ 5,
+      correlation == "~0.5" & model == "propenisty score only" ~ 6,
+      correlation == "~0.85" & model == "propensity score + outcome" ~ 7,
+      correlation == "~1" & model == "propensity score + outcome" ~ 8, 
+      correlation == "~0" & model == "outcome only" ~ 9,
+      correlation == "~0.5" & model == "outcome only" ~ 10,
+      correlation == "~0.85" & model == "outcome only" ~ 11,
+      correlation == "~1" & model == "outcome only" ~ 12
+    )) %>%
+  ggplot(aes(x = n, y = bias, group = group, color = correlation, linetype = model)) +
+  geom_point() + 
+  geom_line() +     
+  scale_x_continuous(breaks = c(200, 1000, 5000)) 
+
 # d <- purrr::map_df(1:1000, ~sim(form_ps = "z ~ x_1",
 #                                 form_out = "y ~ z + x_1", cov_z = 1.35, outcome_family = "binomial")
 # )
