@@ -48,6 +48,16 @@ sim <- function(form_ps = "z ~ x_1",
     y <- (y_lin > 0)
   }
   
+  # z <- as.numeric(1 + .2 * x_1 + -.2 * x_1^2 + V > 0)
+  # if (outcome_family == "gaussian") {
+  #   U <- rnorm(n, 0, 1)
+  #   y <- 6 + 1 * z + 0.5 * x_1 + 0.25 * x_1^2 -.125*  x_1^3 + d * U
+  # } else {
+  #   U <- rlogis(n, 0, 1)
+  #   y_lin <- a + b * z + c_1 * x_1 + c_2 * x_1^2 + x_1^3 + d * U
+  #   y <- (y_lin > 0)
+  # }
+  
   dat <- data.frame(
     y = y,
     z = z,
@@ -127,6 +137,18 @@ corr_0_5000 %>%
 #   group_by(method) %>%
 #   summarise(mean(est))
 
+corr_5_200 <- purrr::map_df(1:1000, ~sim(form_ps = "z ~ x_1",
+                                          form_out = "y ~ z + x_1", cov_z = .85, n = 200)
+)
+
+corr_5_1000 <- purrr::map_df(1:1000, ~sim(form_ps = "z ~ x_1",
+                                         form_out = "y ~ z + x_1", cov_z = .85, n = 1000)
+)
+
+corr_5_5000 <- purrr::map_df(1:1000, ~sim(form_ps = "z ~ x_1",
+                                         form_out = "y ~ z + x_1", cov_z = .85, n = 5000)
+)
+
 corr_85_200 <- purrr::map_df(1:1000, ~sim(form_ps = "z ~ x_1",
                                           form_out = "y ~ z + x_1", cov_z = 1.2, n = 200)
 )
@@ -174,7 +196,10 @@ corr_1_5000 %>%
 
 d <- bind_rows("corr_0_200" = corr_0_200, 
                "corr_0_1000" = corr_0_1000,
-               "corr_0_5000" = corr_0_5000, 
+               "corr_0_5000" = corr_0_5000,
+               "corr_5_200" = corr_5_200,
+               "corr_5_1000" = corr_5_1000,
+               "corr_5_5000" = corr_5_5000,
                "corr_85_200" = corr_85_200,
                "corr_85_1000" = corr_85_1000, 
                "corr_85_5000" = corr_85_5000,
@@ -183,6 +208,7 @@ d <- bind_rows("corr_0_200" = corr_0_200,
                "corr_1_5000" = corr_1_5000, .id = "corr")
 
 d %>%
+  filter(method %in% c("pscore_only_ato", "outcome_and_pscore_ato", "outcome_model_only")) %>%
   group_by(corr, method) %>%
   summarise(bias = mean(est) - 1) %>%
   mutate(
@@ -192,21 +218,29 @@ d %>%
       grepl("5000", corr) ~ 5000
     ),
     model = case_when(
-      method == "outcome_and_pscore" ~ "propensity score + outcome",
+      method == "pscore_only_ato" ~ "propensity score only",
+      method == "outcome_and_pscore_ato" ~ "propensity score + outcome",
       method == "outcome_model_only" ~ "outcome only"
     ),
     correlation = case_when(
       grepl("corr_0", corr) ~ "~0",
+      grepl("corr_5", corr) ~ "~0.5",
       grepl("corr_85", corr) ~ "~0.85",
       grepl("corr_1", corr) ~ "~1"
     ),
     group = case_when(
-      correlation == "~0" & model == "propensity score + outcome" ~ 1,
-      correlation == "~0.85" & model == "propensity score + outcome" ~ 2,
-      correlation == "~1" & model == "propensity score + outcome" ~ 3, 
-      correlation == "~0" & model == "outcome only" ~ 4,
-      correlation == "~0.85" & model == "outcome only" ~ 5,
-      correlation == "~1" & model == "outcome only" ~ 6
+      correlation == "~0" & model == "propensity score only" ~ 1,
+      correlation == "~0.5" & model == "propensity score only" ~ 2,
+      correlation == "~0.85" & model == "propensity score only" ~ 3,
+      correlation == "~1" & model == "propensity score only" ~ 4,
+      correlation == "~0" & model == "propensity score + outcome" ~ 5,
+      correlation == "~0.5" & model == "propenisty score only" ~ 6,
+      correlation == "~0.85" & model == "propensity score + outcome" ~ 7,
+      correlation == "~1" & model == "propensity score + outcome" ~ 8, 
+      correlation == "~0" & model == "outcome only" ~ 9,
+      correlation == "~0.5" & model == "outcome only" ~ 10,
+      correlation == "~0.85" & model == "outcome only" ~ 11,
+      correlation == "~1" & model == "outcome only" ~ 12
     )) %>%
   ggplot(aes(x = n, y = bias, group = group, color = correlation, linetype = model)) +
   geom_point() + 
