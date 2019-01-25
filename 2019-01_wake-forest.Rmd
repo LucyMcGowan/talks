@@ -1,0 +1,9 @@
+---
+output: 
+  html_document:
+    theme: flatly
+---
+
+# Improving Modern Causal Inference Techniques
+Lucy D'Agostino McGowan
+
